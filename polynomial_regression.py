@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 x = np.loadtxt("Ice_cream selling data.csv",delimiter=",",usecols=0,skiprows=1)
-y = np.loadtxt("Ice_cream selling data.csv",delimiter=",",usecols=1,skiprows=1)
+y = np.loadtxt("Ice_cream selling data.csv",delimiter=",",usecols=1,skiprows=1) 
 # initializing curve
 x_powered = np.column_stack((x,x**2))
 # w,b
@@ -42,7 +42,7 @@ for i in range (iterations):
     w -= (alpha * dj_dw)
     b -= (alpha * dj_db)
     print(compute_cost(x_normalized,y,w,b))
-print(f"optimal w :{w}, optima b : {b} ")
+print(f"optimal w :{w}, optimal b : {b} ")
 # visualization
 f_new = x_normalized @ w +b
 plt.plot(x,f_new)
@@ -54,4 +54,5 @@ def RMSE(y_orirgin,y_new):
     rmse = np.sqrt(np.mean((y_orirgin - y_new ) ** 2))
     return rmse
 print(RMSE(y,f_new))
+
 
